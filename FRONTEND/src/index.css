@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 215 25% 20%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 215 25% 20%;
+
+    --muted: 210 16% 96%;
+    --muted-foreground: 215 12% 45%;
+
+    --accent: 180 65% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 72% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 180 65% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens for fog detection UI */
+    --gradient-hero: linear-gradient(135deg, hsl(180 65% 45%) 0%, hsl(200 70% 50%) 50%, hsl(220 75% 55%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(180 65% 45%), hsl(180 65% 35%));
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+    --shadow-card-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px rgb(180 180 255 / 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 215 30% 8%;
+    --foreground: 210 30% 95%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 30% 95%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 30% 95%;
+
+    --primary: 210 30% 90%;
+    --primary-foreground: 215 25% 15%;
+
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 210 30% 95%;
+
+    --muted: 215 20% 16%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 180 65% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 72% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 180 65% 45%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(180 65% 35%) 0%, hsl(200 70% 40%) 50%, hsl(220 75% 45%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(215 25% 12%) 0%, hsl(215 25% 10%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(180 65% 45%), hsl(180 65% 35%));
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+    --shadow-card-hover: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+    --shadow-glow: 0 0 30px rgb(100 200 255 / 0.2);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Glass morphism effect */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-blue-500 to-purple-500;
+  }
+
+  /* Hover glow effect */
+  .hover-glow {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
