@@ -38,7 +38,3 @@ outputs/
 # OS
 .DS_Store
 Thumbs.db
-
-!screenshots/
-!screenshots/*.png
-!screenshots/*.jpg
